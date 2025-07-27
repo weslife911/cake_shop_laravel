@@ -97,7 +97,7 @@
                         <div class="icon"><i class="fa fa-cubes"></i></div>
                         <h4>Product Management</h4>
                         <p>Manage your cake products: add, edit, delete, and view all items.</p>
-                        <a href="./admin-products.html" class="primary-btn">Go to Products</a>
+                        <a href="{{ route("list.products") }}" class="primary-btn">Go to Products</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
@@ -113,7 +113,7 @@
                         <div class="icon"><i class="fa fa-users"></i></div>
                         <h4>User Management</h4>
                         <p>Manage user accounts, roles, and permissions.</p>
-                        <a href="#" class="primary-btn">Go to Users</a>
+                        <a href="{{ route("admin.users") }}" class="primary-btn">Go to Users</a>
                     </div>
                 </div>
             </div>

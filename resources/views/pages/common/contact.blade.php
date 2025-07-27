@@ -78,7 +78,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name" value="{{ old("name") }}" name="name">
+                                    <input type="text" placeholder="Name" value="{{ auth()->check() ? auth()->user()->name : old("name") }}" name="name">
                                     @error("name")
                                         <strong style="color: red;" >
                                             {{ $message }}
@@ -86,7 +86,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" value="{{ old("email") }}" placeholder="Email" name="email">
+                                    <input type="text" value="{{ auth()->check() ? auth()->user()->email : old("email") }}" placeholder="Email" name="email">
                                     @error("email")
                                         <strong style="color: red;" >
                                             {{ $message }}

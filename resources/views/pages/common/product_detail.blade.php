@@ -39,13 +39,15 @@
                             <li>Category: <span>{{ $product->category->name }}</span></li>
                         </ul>
                         <div class="product__details__option">
-                            <div class="quantity">
+                            <form action="{{ route("add.to.cart") }}" method="post">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}"><div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="2">
+                                        <input type="text" name="quantity" value="1">
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="#" class="primary-btn">Add to cart</a>
-                            <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
+                                <button class="primary-btn border-0">Add to cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -94,7 +96,12 @@
                                 <h6><a href="#">{{ $product->name }}</a></h6>
                                 <div class="product__item__price">${{ number_format($product->price, 2) }}</div>
                                 <div class="cart_add">
-                                    <a href="#">Add to cart</a>
+                                    <form action="{{ route("add.to.cart") }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button style="background-color: orange; font-weight: bold;" class="text-white border-0 " >Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

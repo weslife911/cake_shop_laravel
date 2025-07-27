@@ -1,5 +1,5 @@
-<x-layout title="Products" >
-    
+<x-layout title="Users" >
+
     <style>
         /* Custom styles for product list table */
         .product-list-table {
@@ -83,14 +83,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__text">
-                        <h2>Product Management</h2>
+                        <h2>User Management</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
                         <a href="{{ route("home") }}">Home</a>
                         <a href="{{ route("admin.dashboard") }}">Admin Dashboard</a>
-                        <span>Products</span>
+                        <span>Users</span>
                     </div>
                 </div>
             </div>
@@ -102,10 +102,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
-                        <span>Product List</span>
-                        <h2>Manage Your Cakes</h2>
+                        <span>Users List</span>
+                        <h2>Manage Your Users</h2>
                     </div>
-                    <a href="{{ route("add.product") }}" class="primary-btn add-product-btn"><i class="fa fa-plus"></i> Add New Product</a>
+                    {{-- <a href="" class="primary-btn add-product-btn"><i class="fa fa-plus"></i> Add New User</a> --}}
                 </div>
             </div>
             <div class="row">
@@ -114,24 +114,24 @@
                         <table class="product-list-table">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Product Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>role</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if($products)
-                                    @foreach ($products as $product)
+                                @if($users)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td><img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="product-img"></td>
-                                            <td class="product-name">{{ $product->name }}</td>
-                                            <td>{{ $product->category->name }}</td>
-                                            <td>${{ number_format($product->price, 2) }}</td>
+                                            <td> {{ $user->id }} </td>
+                                            <td class="product-name">{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->role }}</td>
                                             <td class="action-buttons">
-                                                <a href="{{ route("edit.product", $product->id) }}" class="edit-btn"><i class="fa fa-edit"></i> Edit</a>
-                                                <form action="{{ route("delete.product", $product->id) }}" method="post">
+                                                <a href="{{ route("admin.user.edit", $user->id) }}" class="edit-btn"><i class="fa fa-edit"></i> Edit</a>
+                                                <form action="{{ route("admin.user.delete", $user->id) }}" method="post">
                                                     @csrf
                                                     @method("DELETE")
                                                     <button type="submit" class="delete-btn"><i class="fa fa-trash"></i> Delete</button>
@@ -148,6 +148,6 @@
         </div>
     </section>
 
-    {{ $products->links("vendor.pagination.bootstrap-5") }}
+    {{ $users->links("vendor.pagination.bootstrap-5") }}
 
 </x-layout>

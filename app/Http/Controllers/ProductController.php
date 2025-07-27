@@ -17,7 +17,7 @@ class ProductController extends Controller
     }
 
     public function list_products_view() {
-        $products = Product::all();
+        $products = Product::paginate(5);
         return view("pages.admin.list_products", ["products" => $products]);
     }
 

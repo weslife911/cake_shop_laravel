@@ -6,7 +6,7 @@
                     <div class="col-lg-8">
                         <div class="hero__text">
                             <h2>Making your life sweeter one bite at a time!</h2>
-                            <a href="#" class="primary-btn">Our cakes</a>
+                            <a href="{{ route("shop") }}" class="primary-btn">Our cakes</a>
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="col-lg-8">
                         <div class="hero__text">
                             <h2>Making your life sweeter one bite at a time!</h2>
-                            <a href="#" class="primary-btn">Our cakes</a>
+                            <a href="{{ route("shop") }}" class="primary-btn">Our cakes</a>
                         </div>
                     </div>
                 </div>

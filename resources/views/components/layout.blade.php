@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrt-token" content="{{ csrf_token() }}" >
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config("app.name", "Cake") }} | {{ $title }}</title>
+    <title>{{ config("app.name", "Dough Re Mi") }} | {{ $title }}</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"

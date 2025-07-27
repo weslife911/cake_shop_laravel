@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\UserMail;
 
 class ContactController extends Controller
 {
@@ -22,7 +24,21 @@ class ContactController extends Controller
         if($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         } else {
-            return $request;
+            $mail_data = [
+                "title" => 'Mail to Admin',
+                "name" => $request->name,
+                "email" => $request->email,
+                "message"=> $request->message,
+            ];
+            $mail = Mail::to($request->email)->send(new UserMail(
+                $mail_data
+            ));
+            if($mail) {
+                flash()->success("Email sent successfully");
+                return redirect()->route("home");
+            } else {
+                flash()->error("Encountered error while sending email");
+            }
         }
     }
 }

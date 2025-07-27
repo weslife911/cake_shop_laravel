@@ -77,7 +77,6 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="shop__last__text">
-                            {{-- Displaying current range and total results --}}
                             <p>Showing {{ $products->firstItem() }}-{{ $products->lastItem() }} of {{ $products->total() }} results</p>
                         </div>
                     </div>
