@@ -24,15 +24,13 @@ class ContactController extends Controller
         if($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         } else {
-            $mail_data = [
+            $data = [
                 "title" => 'Mail to Admin',
                 "name" => $request->name,
                 "email" => $request->email,
                 "message"=> $request->message,
             ];
-            $mail = Mail::to($request->email)->send(new UserMail(
-                $mail_data
-            ));
+            $mail = Mail::to(env("MAIL_USERNAME"))->send(new UserMail($data));
             if($mail) {
                 flash()->success("Email sent successfully");
                 return redirect()->route("home");

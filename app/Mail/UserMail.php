@@ -13,15 +13,15 @@ class UserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mail_data;
+    public $data;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mail_data)
+    public function __construct($data)
     {
         //
-        $this->mail_data = $mail_data;
+        $this->data = $data;
     }
 
     /**
@@ -40,7 +40,7 @@ class UserMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.user_mail',
+            view: 'pages.mail.user_mail',
         );
     }
 

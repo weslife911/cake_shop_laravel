@@ -48,3 +48,7 @@ Route::middleware("auth")->group(function () {
     Route::post("/cart/add/product", [CartController::class, "add_product_to_cart"])->name("add.to.cart");
     Route::delete("/cart/delete/{id}", [CartController::class, "remove_product_from_cart"])->name("cart.delete");
 });
+
+Route::fallback(function() {
+    return view("pages.fallback.404");
+});
