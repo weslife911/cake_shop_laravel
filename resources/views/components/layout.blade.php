@@ -32,7 +32,7 @@
 
 <body>
 
-    <x-header/>
+    <x-header />
 
     {{ $slot }}
 

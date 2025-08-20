@@ -1,3 +1,5 @@
+
+
 <div id="preloder">
     <div class="loader"></div>
 </div>
@@ -109,7 +111,7 @@
                         <li class="active"><a href="{{ route("home") }}">Home</a></li>
                         <li><a href="{{ route("about") }}">About</a></li>
                         <li><a href="{{ route("shop") }}">Shop</a></li>
-                        <li><a href="./blog.html">Blogs</a></li>
+                        <li><a href="{{ route("blogs") }}">Blogs</a></li>
                         <li><a href="{{ route("contact") }}">Contact</a></li>
                         @if (Auth::check() && Auth::user()->role == "admin")
                             <li class="active"><a href="{{ route("admin.dashboard") }}">Admin</a></li>

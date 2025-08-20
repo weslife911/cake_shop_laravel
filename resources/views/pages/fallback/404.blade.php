@@ -34,7 +34,11 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
+                        @if (Auth::check() && Auth::user()->role == "admin")
+                        <a href="{{ route("admin.dashboard") }}">Home</a>
+                        @else
                         <a href="{{ route("home") }}">Home</a>
+                        @endif
                         <span>404</span>
                     </div>
                 </div>

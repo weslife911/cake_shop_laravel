@@ -44,7 +44,7 @@ class ProductController extends Controller
                 ]);
                 if($product) {
                     flash()->success("Product added successfully");
-                    return redirect()->route("list.products");
+                    return redirect()->route("add.product");
                 }
             }
         }

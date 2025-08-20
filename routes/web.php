@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -37,6 +38,8 @@ Route::middleware(['auth', 'admin'])->group(function() {
         Route::delete("/user/delete/{id}", [AdminController::class, "admin_delete_user_account"])->name("admin.user.delete");
         Route::get("/edit/user/{id}", [AdminController::class, "admin_user_edit_view"])->name("admin.user.edit");
         Route::put("/edit/user/{id}", [AdminController::class, "admin_edit_user"])->name("admin.user.edit");
+        Route::get("/add/blog", [BlogController::class, "add_blog_view"])->name("admin.add.blog");
+        Route::post("/add/blog", [BlogController::class, "add_blog"])->name("admin.add.blog");
     });
 });
 
@@ -52,3 +55,5 @@ Route::middleware("auth")->group(function () {
 Route::fallback(function() {
     return view("pages.fallback.404");
 });
+
+Route::get("/blogs", [BlogController::class, "blog_view"])->name("blogs");

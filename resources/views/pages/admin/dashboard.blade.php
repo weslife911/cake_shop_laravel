@@ -116,6 +116,22 @@
                         <a href="{{ route("admin.users") }}" class="primary-btn">Go to Users</a>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="admin-card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <h4>Category Management</h4>
+                        <p>View and manage product categories, add, update and delete them.</p>
+                        <a href="{{ route("list.categories") }}" class="primary-btn">Go to Categories</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="admin-card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <h4>Blogs Management</h4>
+                        <p>View and manage blogs, add, update and delete them.</p>
+                        <a href="{{ route("admin.users") }}" class="primary-btn">Go to Blogs</a>
+                    </div>
+                </div>
             </div>
             <div class="row mt-5">
                 <div class="col-lg-12 text-center">
@@ -123,12 +139,10 @@
                         <h2>Quick Links</h2>
                     </div>
                     <ul class="admin-menu">
-                        <li><a href="{{ route("list.products") }}">Manage Products</a></li>
-                        <li><a href="{{ route("list.categories") }}">Manage Categories</a></li>
                         <li><a href="{{ route("add.product") }}">Add New Product</a></li>
                         <li><a href="{{ route("add.category") }}">Add New Category</a></li>
+                        <li><a href="{{ route("admin.add.blog") }}">Add New Blog</a></li>
                         <li><a href="#">View All Orders</a></li>
-                        <li><a href="#">Site Settings</a></li>
                     </ul>
                 </div>
             </div>
